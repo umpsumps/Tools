@@ -15,7 +15,7 @@ def parse_email(filename):
                         matches = pattern.finditer(line)  # Gives an iterator of matches.
                         for match in matches:
                                 group = match.groups()
-                                email = group[0].strip("<br>") + "@" + group[1].strip("\n.")  # Repair.
+                                email = group[0].split("<br>") + "@" + group[1].strip("\n.")  # Repair.
                                 email = [email]
                                 writer.writerows([email])
        
